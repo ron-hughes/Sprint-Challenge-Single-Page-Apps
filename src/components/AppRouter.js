@@ -13,7 +13,7 @@ export default function AppRouter() {
             <Route exact path="/" component={WelcomePage} />
             <Route path="/characters" component={CharacterList} />
             <Route path="/locations" component={LocationsList} />
-            <Route path="/episode" component={EpisodesList} />
+            <Route path="/episodes" component={EpisodesList} />
 
         </div>
     )
