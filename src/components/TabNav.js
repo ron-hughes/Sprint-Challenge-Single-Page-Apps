@@ -1,7 +1,7 @@
 import React from "react";
 import { Tab, Menu, Icon } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 // TODO: Add missing menu/tabs/nav below
 
@@ -11,25 +11,40 @@ import styled from 'styled-components';
 // https://react.semantic-ui.com/elements/button/
 // https://react.semantic-ui.com/collections/breadcrumb/
 
-
 export default function TabNav() {
-    return (
-        <div>
-            <nav>
-                <NavLink exact to="/" >
-                    Home
-                </NavLink>
-                <NavLink exact to="/characters" >
-                   Characters
-                </NavLink>
-                <NavLink exact to="/locations" >
-                    Locations
-                </NavLink>
-                <NavLink exact to="/episodes" >
-                   Episodes
-                </NavLink>
-            </nav>
-        </div>
-    )
-
-};
+  return (
+    <div>
+      <nav>
+        <NavLink
+          exact
+          to="/"
+          style={{ padding: "0 8px" }}
+          activeStyle={{
+            fontWeight: "bold",
+            background: 'lightgrey'
+          }}
+        >
+          Home
+        </NavLink>
+        <NavLink exact to="/characters" style={{ padding: "0 8px" }} activeStyle={{
+            fontWeight: "bold",
+            background: 'lightgrey'
+          }}>
+          Characters
+        </NavLink>
+        <NavLink exact to="/locations" style={{ padding: "0 8px" }} activeStyle={{
+            fontWeight: "bold",
+            background: 'lightgrey'
+          }}>
+          Locations
+        </NavLink>
+        <NavLink exact to="/episodes" style={{ padding: "0 8px" }} activeStyle={{
+            fontWeight: "bold",
+            background: 'lightgrey'
+          }}>
+          Episodes
+        </NavLink>
+      </nav>
+    </div>
+  );
+}
