@@ -1,7 +1,7 @@
-import React from "react";
-import { Tab, Menu, Icon } from "semantic-ui-react";
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
+import React, { Component } from "react";
+import { Menu } from "semantic-ui-react";
+import { Link } from "react-router-dom";
+
 
 // TODO: Add missing menu/tabs/nav below
 
@@ -11,40 +11,51 @@ import styled from "styled-components";
 // https://react.semantic-ui.com/elements/button/
 // https://react.semantic-ui.com/collections/breadcrumb/
 
-export default function TabNav() {
-  return (
-    <div>
-      <nav>
-        <NavLink
-          exact
-          to="/"
-          style={{ padding: "0 8px" }}
-          activeStyle={{
-            fontWeight: "bold",
-            background: 'lightgrey'
-          }}
-        >
-          Home
-        </NavLink>
-        <NavLink exact to="/characters" style={{ padding: "0 8px" }} activeStyle={{
-            fontWeight: "bold",
-            background: 'lightgrey'
-          }}>
-          Characters
-        </NavLink>
-        <NavLink exact to="/locations" style={{ padding: "0 8px" }} activeStyle={{
-            fontWeight: "bold",
-            background: 'lightgrey'
-          }}>
-          Locations
-        </NavLink>
-        <NavLink exact to="/episodes" style={{ padding: "0 8px" }} activeStyle={{
-            fontWeight: "bold",
-            background: 'lightgrey'
-          }}>
-          Episodes
-        </NavLink>
-      </nav>
-    </div>
-  );
+export default class MenuExampleTabularOnTop extends Component {
+  state = { activeItem: 'Home Page' }
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  render() {
+    const { activeItem } = this.state
+    return (
+      <div>
+        <Menu attached='top' tabular>
+        
+          <Menu.Item
+            name='Home Page'
+            icon='home'
+            active={activeItem === 'Home Page'}
+            onClick={this.handleItemClick}
+            as={Link}
+            to="/"
+          />
+          <Menu.Item
+            name='Characters'
+            icon='users'
+            active={activeItem === 'Characters'}
+            onClick={this.handleItemClick}
+            as={Link}
+            to="/characters"
+          />
+          <Menu.Item
+            name='Locations'
+            icon='map outline'
+            active={activeItem === 'Locations'}
+            onClick={this.handleItemClick}
+            as={Link}
+            to="/locations"
+          />
+          <Menu.Item
+            name='Episodes'
+            icon='video camera'
+            active={activeItem === 'Episodes'}
+            onClick={this.handleItemClick}
+            as={Link}
+            to="/episodes"
+          />
+          
+        </Menu>
+        
+      </div>
+    )
+  }
 }
