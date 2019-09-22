@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Menu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
@@ -11,11 +11,13 @@ import { Link } from "react-router-dom";
 // https://react.semantic-ui.com/elements/button/
 // https://react.semantic-ui.com/collections/breadcrumb/
 
-export default class MenuExampleTabularOnTop extends Component {
-  state = { activeItem: 'Home Page' }
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-  render() {
-    const { activeItem } = this.state
+export default function  MenuExampleTabularOnTop (props)  {
+
+  const [activeItem, setActiveItem] = useState();
+
+ 
+  const handleItemClick = (e, { name }) => setActiveItem(name)
+  
     return (
       <div>
         <Menu attached='top' tabular>
@@ -24,7 +26,7 @@ export default class MenuExampleTabularOnTop extends Component {
             name='Home Page'
             icon='home'
             active={activeItem === 'Home Page'}
-            onClick={this.handleItemClick}
+            onClick={handleItemClick}
             as={Link}
             to="/"
           />
@@ -32,7 +34,7 @@ export default class MenuExampleTabularOnTop extends Component {
             name='Characters'
             icon='users'
             active={activeItem === 'Characters'}
-            onClick={this.handleItemClick}
+            onClick={handleItemClick}
             as={Link}
             to="/characters"
           />
@@ -40,7 +42,7 @@ export default class MenuExampleTabularOnTop extends Component {
             name='Locations'
             icon='map outline'
             active={activeItem === 'Locations'}
-            onClick={this.handleItemClick}
+            onClick={handleItemClick}
             as={Link}
             to="/locations"
           />
@@ -48,7 +50,7 @@ export default class MenuExampleTabularOnTop extends Component {
             name='Episodes'
             icon='video camera'
             active={activeItem === 'Episodes'}
-            onClick={this.handleItemClick}
+            onClick={handleItemClick}
             as={Link}
             to="/episodes"
           />
@@ -58,4 +60,3 @@ export default class MenuExampleTabularOnTop extends Component {
       </div>
     )
   }
-}

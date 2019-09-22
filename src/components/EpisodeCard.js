@@ -10,7 +10,7 @@ const StyledH2 = styled.h2`
 `;
 
     return (
-      <div>
+      <div style={{width: '24%'}}>
         <StyledH2>Name: {props.episode.name}</StyledH2>
         <h3>Episode: {props.episode.episode}</h3>
         <h3>Air Date: {props.episode.air_date}</h3>

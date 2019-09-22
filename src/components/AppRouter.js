@@ -9,12 +9,12 @@ import WelcomePage from './WelcomePage';
 
 export default function AppRouter() {
     return (
-        <div>
+        <>
             <Route exact path="/" component={WelcomePage} />
             <Route path="/characters" component={CharacterList} />
             <Route path="/locations" component={LocationsList} />
             <Route path="/episodes" component={EpisodesList} />
 
-        </div>
+        </>
     )
 }

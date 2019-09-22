@@ -30,10 +30,10 @@ export default function EpisodesList() {
   // console.log(data);
 
   return (
-    <StyledDiv>
+      <StyledDiv>
       {data.map(obj => {
         return <EpisodeCard key={obj.id} episode={obj} />;
       })}
-    </StyledDiv>
+   </StyledDiv>
   );
 }
